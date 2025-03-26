@@ -192,3 +192,106 @@ body.modal-open {
 .contact-container a:hover {
     text-decoration: underline;
 }
+/* General Form Styling */
+.portfolio-form {
+    background-color: var(--bg-color);
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: var(--text-color);
+}
+
+.portfolio-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.portfolio-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.portfolio-form input[type="text"],
+.portfolio-form input[type="email"],
+.portfolio-form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.portfolio-form input[type="file"] {
+    background-color: var(--input-bg);
+    border: 1px solid #ccc;
+}
+
+/* Button Styling */
+.portfolio-form button {
+    padding: 12px 20px;
+    font-size: 18px;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.portfolio-form button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Light/Dark Mode Variables */
+:root {
+    --bg-color: #fff;
+    --text-color: #333;
+    --primary-color: #007bff;
+    --button-text-color: #fff;
+    --input-bg: #f9f9f9;
+    --hover-color: #0056b3;
+}
+
+/* Dark Mode Styles */
+body.dark .portfolio-form {
+    background-color: #222;
+    color: #fff;
+}
+
+body.dark .portfolio-form input[type="text"],
+body.dark .portfolio-form input[type="email"],
+body.dark .portfolio-form input[type="file"] {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+body.dark .portfolio-form button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.dark .portfolio-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .portfolio-form {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .portfolio-form button {
+        width: 100%;
+    }
+}

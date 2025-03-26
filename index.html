@@ -44,11 +44,21 @@
             <iframe id="pdf-viewer"></iframe>
         </div>
     </div>
-    <div class="contact-container">
-        <h2>Submit Your Portfolio</h2>
-        <p>Want to feature your team's portfolio here? Send us an email with your PDF attached!</p>
-        <p><strong>Email:</strong> <a href="mailto:megiddo.lions@gmail.com">megiddo.lions@gmail.com</a></p>
-    </div>
+
+<form name="portfolio-submission" method="POST" netlify class="portfolio-form">
+    <h2>Submit Your Portfolio</h2>
+    <label for="team">Team Name</label>
+    <input type="text" name="team" placeholder="Team Name" required><br>
+
+    <label for="email">Your Email</label>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+
+    <label for="attachment">Attach Your Portfolio (PDF)</label>
+    <input type="file" name="attachment" accept=".pdf" required><br>
+
+    <button type="submit">Send Portfolio</button>
+</form>
+
 
     <script src="static/script.js"></script>
 </body>
