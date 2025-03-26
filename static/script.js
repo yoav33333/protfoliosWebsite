@@ -1,5 +1,5 @@
 const portfolioData = [
-    { team: 'Megiddo Lions', number: '18833', year: '2021-22', award: 'Design', pdf: 'PDFs/21-22/Megiddo lions - 18833 - design.pdf', isAwardWinner: true },
+    { team: 'Megiddo Lions', number: '18833', year: '2021-22', award: 'Design, Inspire 2', pdf: 'PDFs/21-22/Megiddo lions - 18833 - design.pdf', isAwardWinner: true },
     { team: 'Megiddo Lions', number: '18833', year: '2022-23', award: 'Inspire 1st Place', pdf: 'PDFs/22-23/Megiddo lions - 18833 - inspire 1.pdf', isAwardWinner: true },
     { team: 'Megiddo Lions', number: '18833', year: '2023-24', award: 'Motivate', pdf: 'PDFs/23-24/Megiddo Lions - 18833 - Motivate.pdf', isAwardWinner: true },
     { team: 'Megiddo Lions', number: '18833', year: '2024-25', award: 'Think 1st Place', pdf: 'PDFs/24-25/Megiddo_Lions_18833_think_1.pdf', isAwardWinner: true },
