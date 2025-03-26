@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Portfolio</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="light">
+
+    <div class="portfolio-container">
+        <button class="back-button" onclick="window.history.back()">Back</button>
+
+        <h1 id="portfolio-title">Portfolio</h1>
+        <embed id="pdf-viewer" src="" type="application/pdf" width="100%" height="800px">
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const pdfUrl = urlParams.get('pdf');
+        document.getElementById('pdf-viewer').src = pdfUrl;
+
+        // Set the portfolio title
+        const portfolioTitle = urlParams.get('team') || 'Portfolio';
+        document.getElementById('portfolio-title').textContent = portfolioTitle;
+    </script>
+</body>
+</html>

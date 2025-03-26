@@ -1,0 +1,97 @@
+/* Basic styles for both dark and light modes */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+body.dark {
+    background-color: #121212;
+    color: #fff;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input, select {
+    padding: 8px;
+    margin: 10px;
+}
+
+.search-container {
+    text-align: center;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.portfolio-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.2s;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-item .award {
+    color: gold;
+    font-weight: bold;
+}
+
+.portfolio-item.highlight {
+    border-color: #ffcc00;
+}
+
+.portfolio-item a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.portfolio-item a:hover {
+    text-decoration: underline;
+}
+
+.portfolio-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.portfolio-container .back-button {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#pdf-viewer {
+    margin-top: 20px;
+}
