@@ -1,79 +1,85 @@
 const portfolioData = [
-    {
-        team: 'Megiddo Lions',
-        year: '2025',
-        award: 'Think 1st Place',
-        pdf: 'PDFs/24-25/Megiddo_Lions_18833_think_1.pdf',
-        tags: ['2025', 'Megiddo Lions'],
-        isAwardWinner: true
-    },
-    {
-        team: 'Mishmash',
-        year: '2025',
-        award: 'Most Innovative',
-        pdf: 'PDFs/24-25/mishmash - 12016 - inspire 1.pdf',
-        tags: ['2025', 'Mishmash'],
-        isAwardWinner: true
-    },
-    // Add more portfolio objects here
+    { team: 'Megiddo Lions', number: '18833', year: '2021-22', award: 'Design', pdf: 'PDFs/21-22/Megiddo lions - 18833 - design.pdf' },
+    { team: 'Megiddo Lions', number: '18833', year: '2022-23', award: 'Inspire 1st Place', pdf: 'PDFs/22-23/Megiddo lions - 18833 - inspire 1.pdf', isAwardWinner: true },
+    { team: 'Megiddo Lions', number: '18833', year: '2023-24', award: 'Motivate', pdf: 'PDFs/23-24/Megiddo Lions - 18833 - Motivate.pdf' },
+    { team: 'Megiddo Lions', number: '18833', year: '2024-25', award: 'Think 1st Place', pdf: 'PDFs/24-25/Megiddo_Lions_18833_think_1.pdf', isAwardWinner: true },
+    { team: 'Mishmash', number: '12016', year: '2024-25', award: 'Inspire 1st Place', pdf: 'PDFs/24-25/mishmash - 12016 - inspire 1.pdf', isAwardWinner: true },
+    { team: 'Apollo', number: '9662', year: '2024-25', award: 'Inspire 3rd Place', pdf: 'PDFs/24-25/apollo - 9662 - inspire 3.pdf', isAwardWinner: true },
+    { team: 'BTJ', number: '13452', year: '2024-25', award: 'Innovate', pdf: 'PDFs/24-25/BTJ - 13452 - innovate.pdf' },
+    { team: 'MA', number: '13146', year: '2024-25', award: 'Motivate', pdf: 'PDFs/24-25/MA - 13146 - motivate.pdf' },
+    { team: 'Orange Fox', number: '12363', year: '2024-25', award: 'Control', pdf: 'PDFs/24-25/orange fox - 12363 - control.pdf' },
+    { team: 'Shamir', number: '23422', year: '2024-25', award: 'Design', pdf: 'PDFs/24-25/shamir - 23422 - design.pdf' }
 ];
 
 function toggleMode() {
-    const body = document.body;
-    body.classList.toggle('light');
-    body.classList.toggle('dark');
+    document.body.classList.toggle('light');
+    document.body.classList.toggle('dark');
 }
 
 function renderPortfolios(filteredData) {
     const portfolioList = document.getElementById('portfolio-list');
-    portfolioList.innerHTML = ''; // Clear the current list
+    portfolioList.innerHTML = '';
 
     filteredData.forEach(portfolio => {
         const portfolioItem = document.createElement('div');
         portfolioItem.classList.add('portfolio-item');
-        if (portfolio.isAwardWinner) {
-            portfolioItem.classList.add('highlight');
-        }
+        if (portfolio.isAwardWinner) portfolioItem.classList.add('highlight');
 
         portfolioItem.innerHTML = `
-            <h3>${portfolio.team}</h3>
+            <h3>${portfolio.team} (#${portfolio.number})</h3>
             <p><strong>Year:</strong> ${portfolio.year}</p>
             <p><strong>Award:</strong> ${portfolio.award}</p>
-            <a href="${portfolio.pdf}" download class="pdf-link">Download Portfolio</a>
+            <button onclick="viewPDF('${portfolio.pdf}')">View PDF</button>
         `;
 
         portfolioList.appendChild(portfolioItem);
     });
 }
-
 function filterPortfolios() {
     const searchQuery = document.getElementById('search-bar').value.toLowerCase();
-    const filteredData = portfolioData.filter(portfolio =>
-        portfolio.team.toLowerCase().includes(searchQuery) ||
-        portfolio.year.toLowerCase().includes(searchQuery)
-    );
+    const awardFilter = document.getElementById('filter-award').value;
+
+    const filteredData = portfolioData.filter(portfolio => {
+        const matchesSearch =
+            portfolio.team.toLowerCase().includes(searchQuery) ||
+            portfolio.number.includes(searchQuery) ||
+            portfolio.year.includes(searchQuery) ||
+            portfolio.award.toLowerCase().includes(searchQuery);
+
+        const matchesAward = awardFilter === "all" || portfolio.award.toLowerCase().includes(awardFilter.toLowerCase());
+
+        return matchesSearch && matchesAward;
+    });
+
     renderPortfolios(filteredData);
 }
-
 function sortPortfolios() {
-    const sortByYear = document.getElementById('sort-by-year').value;
-    const sortByAward = document.getElementById('sort-by-award').value;
+    const sortOrder = document.getElementById('sort-by-year').value;
 
-    let sortedData = [...portfolioData];
+    const sortedData = [...portfolioData].sort((a, b) => {
+        // Convert years to numbers for correct sorting
+        const yearA = parseInt(a.year.replace(/\D/g, ''), 10);
+        const yearB = parseInt(b.year.replace(/\D/g, ''), 10);
 
-    if (sortByYear !== 'none') {
-        sortedData.sort((a, b) => {
-            return sortByYear === 'asc' ? a.year - b.year : b.year - a.year;
-        });
-    }
-
-    if (sortByAward === 'award') {
-        const awardOrder = ['Champion', 'Finalist', 'Semifinalist'];
-        sortedData.sort((a, b) => awardOrder.indexOf(a.award) - awardOrder.indexOf(b.award));
-    }
+        return sortOrder === "asc" ? yearA - yearB : yearB - yearA;
+    });
 
     renderPortfolios(sortedData);
 }
 
+
+function viewPDF(pdfURL) {
+    document.getElementById('pdf-viewer').src = pdfURL;
+    document.getElementById('pdf-modal').style.display = 'flex';
+}
+
+function closePDF() {
+    document.getElementById('pdf-modal').style.display = 'none';
+}
+document.getElementById('pdf-modal').addEventListener('click', (event) => {
+    if (event.target.id === 'pdf-modal') {
+        closePDF();
+    }
+});
 // Initial render
 renderPortfolios(portfolioData);
