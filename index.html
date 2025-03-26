@@ -10,19 +10,21 @@
 
     <button id="mode-toggle" onclick="toggleMode()">Switch Mode</button>
 
+    <h1 class="welcome-message">Welcome!!! <br> Here you can browse different teams portfolios and INSPIRE from them!</h1>
+
     <div class="search-container">
-        <input type="text" id="search-bar" placeholder="Search by team, year, award..." oninput="filterPortfolios()">
+        <input type="text" id="search-bar" placeholder="Search by team, year, award..." oninput="updatePortfolios()">
     </div>
 
     <div class="filters">
         <label for="sort-by-year">Sort by Year:</label>
-        <select id="sort-by-year" onchange="sortPortfolios()">
-            <option value="asc">Ascending</option>
+        <select id="sort-by-year" onchange="updatePortfolios()">
             <option value="desc">Descending</option>
+            <option value="asc">Ascending</option>
         </select>
 
         <label for="sort-by-award">Filter by Award:</label>
-        <select id="filter-award" onchange="filterPortfolios()">
+        <select id="filter-award" onchange="updatePortfolios()">
             <option value="all">All</option>
             <option value="Think">Think</option>
             <option value="Inspire">Inspire</option>
@@ -41,6 +43,11 @@
             <span class="close" onclick="closePDF()">×</span>
             <iframe id="pdf-viewer"></iframe>
         </div>
+    </div>
+    <div class="contact-container">
+        <h2>Submit Your Portfolio</h2>
+        <p>Want to feature your team's portfolio here? Send us an email with your PDF attached!</p>
+        <p><strong>Email:</strong> <a href="megiddo.lions@gmail.com">megiddo.lions@gmail.com</a></p>
     </div>
 
     <script src="static/script.js"></script>
