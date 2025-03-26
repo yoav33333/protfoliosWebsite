@@ -69,11 +69,22 @@ function sortPortfolios() {
 
 
 function viewPDF(pdfURL) {
-    document.getElementById('pdf-viewer').src = pdfURL;
-    document.getElementById('pdf-modal').style.display = 'flex';
-        document.body.classList.add('modal-open'); // Prevent background scrolling
-
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+        // If on mobile, force download instead of opening in modal
+        const link = document.createElement("a");
+        link.href = pdfURL;
+        link.download = pdfURL.split("/").pop(); // Extract filename
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        // Desktop: Open in modal
+        document.getElementById('pdf-viewer').src = pdfURL;
+        document.getElementById('pdf-modal').style.display = 'flex';
+        document.body.classList.add('modal-open');
+    }
 }
+
 
 function closePDF() {
     document.getElementById('pdf-modal').style.display = 'none';
