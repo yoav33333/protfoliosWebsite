@@ -133,3 +133,27 @@ body.dark .portfolio-item {
     padding: 5px 10px;
     border-radius: 50%;
 }
+/* Make modal full-screen on mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        height: 95%;
+        padding: 10px;
+    }
+
+    .modal-content iframe {
+        height: 85vh; /* Ensures it fills most of the screen */
+    }
+
+    .close {
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        padding: 3px 8px;
+    }
+}
+
+/* Prevent background scrolling when modal is open */
+body.modal-open {
+    overflow: hidden;
+}

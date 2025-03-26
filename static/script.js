@@ -71,10 +71,14 @@ function sortPortfolios() {
 function viewPDF(pdfURL) {
     document.getElementById('pdf-viewer').src = pdfURL;
     document.getElementById('pdf-modal').style.display = 'flex';
+        document.body.classList.add('modal-open'); // Prevent background scrolling
+
 }
 
 function closePDF() {
     document.getElementById('pdf-modal').style.display = 'none';
+    document.body.classList.remove('modal-open'); // Re-enable scrolling
+
 }
 document.getElementById('pdf-modal').addEventListener('click', (event) => {
     if (event.target.id === 'pdf-modal') {
