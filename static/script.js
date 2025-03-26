@@ -20,6 +20,8 @@ function renderPortfolios(filteredData) {
     const portfolioList = document.getElementById('portfolio-list');
     portfolioList.innerHTML = '';
 
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
     filteredData.forEach(portfolio => {
         const portfolioItem = document.createElement('div');
         portfolioItem.classList.add('portfolio-item');
@@ -29,12 +31,13 @@ function renderPortfolios(filteredData) {
             <h3>${portfolio.team} (#${portfolio.number})</h3>
             <p><strong>Year:</strong> ${portfolio.year}</p>
             <p><strong>Award:</strong> ${portfolio.award}</p>
-            <button onclick="viewPDF('${portfolio.pdf}')">View PDF</button>
+            <button onclick="viewPDF('${portfolio.pdf}')">${isMobile ? 'Download PDF' : 'View PDF'}</button>
         `;
 
         portfolioList.appendChild(portfolioItem);
     });
 }
+
 function filterPortfolios() {
     const searchQuery = document.getElementById('search-bar').value.toLowerCase();
     const awardFilter = document.getElementById('filter-award').value;
