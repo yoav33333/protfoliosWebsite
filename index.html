@@ -45,16 +45,17 @@
         </div>
     </div>
 
-<form name="portfolio-submission" method="POST" netlify class="portfolio-form">
+<form name="portfolio-submission" method="POST" data-netlify="true" class="portfolio-form">
     <h2>Submit Your Portfolio</h2>
+
     <label for="team">Team Name</label>
-    <input type="text" name="team" placeholder="Team Name" required><br>
+    <input type="text" name="team" id="team" placeholder="Team Name" required>
 
     <label for="email">Your Email</label>
-    <input type="email" name="email" placeholder="Your Email" required><br>
+    <input type="email" name="email" id="email" placeholder="Your Email" required>
 
     <label for="attachment">Attach Your Portfolio (PDF)</label>
-    <input type="file" name="attachment" accept=".pdf" required><br>
+    <input type="file" name="attachment" id="attachment" accept=".pdf" required>
 
     <button type="submit">Send Portfolio</button>
 </form>
