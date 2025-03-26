@@ -45,9 +45,7 @@
         </div>
     </div>
 
-<form name="portfolio-submission" method="POST" data-netlify="true" enctype="multipart/form-data">
-    <input type="hidden" name="form-name" value="portfolio-submission">
-
+<form action="https://formspree.io/f/manebglk" method="POST" enctype="multipart/form-data" class="portfolio-form">
     <h2>Submit Your Portfolio</h2>
 
     <label for="team">Team Name</label>
@@ -56,8 +54,9 @@
     <label for="email">Your Email</label>
     <input type="email" name="email" id="email" placeholder="Your Email" required>
 
-    <label for="attachment">Attach Your Portfolio (PDF)</label>
-    <input type="file" name="attachment" id="attachment" accept=".pdf" required>
+    <label for="drive_link">A link to your Portfolio</label>
+    <input type="url" name="drive_link" placeholder="Google Drive Link to Portfolio" required>
+
 
     <button type="submit">Send Portfolio</button>
 </form>
@@ -65,4 +64,8 @@
 
     <script src="static/script.js"></script>
 </body>
+<footer>
+    <p>© 2025 FTC Portfolio Showcase | Created by Yoav Goren</p>
+</footer>
+
 </html>

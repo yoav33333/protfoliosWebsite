@@ -295,3 +295,19 @@ body.dark .portfolio-form button:hover {
         width: 100%;
     }
 }
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #222;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+body.light footer {
+    background-color: #ddd;
+    color: #333;
+}
+
