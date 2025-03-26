@@ -45,7 +45,9 @@
         </div>
     </div>
 
-<form name="portfolio-submission" method="POST" data-netlify="true" class="portfolio-form">
+<form name="portfolio-submission" method="POST" data-netlify="true" enctype="multipart/form-data">
+    <input type="hidden" name="form-name" value="portfolio-submission">
+
     <h2>Submit Your Portfolio</h2>
 
     <label for="team">Team Name</label>
