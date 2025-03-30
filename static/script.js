@@ -8,7 +8,8 @@ const portfolioData = [
     { team: 'BTJ', number: '13452', year: '2024-25', award: 'Innovate', pdf: 'PDFs/24-25/BTJ - 13452 - innovate.pdf', isAwardWinner: true},
     { team: 'MA', number: '13146', year: '2024-25', award: 'Motivate', pdf: 'PDFs/24-25/MA - 13146 - motivate.pdf', isAwardWinner: true},
     { team: 'Orange Fox', number: '12363', year: '2024-25', award: 'Control', pdf: 'PDFs/24-25/orange fox - 12363 - control.pdf', isAwardWinner: true},
-    { team: 'Shamir', number: '23422', year: '2024-25', award: 'Design', pdf: 'PDFs/24-25/shamir - 23422 - design.pdf', isAwardWinner: true}
+    { team: 'Shamir', number: '23422', year: '2024-25', award: 'Design', pdf: 'PDFs/24-25/shamir - 23422 - design.pdf', isAwardWinner: true},
+    { team: 'Skeleton Army', number: '23644', year: '2024-25', award: 'Inspire 3rd Place', pdf: 'PDFs/24-25/skeleton army - 23644 - Inspire 3.pdf', isAwardWinner: true}
 ];
 
 function toggleMode() {
